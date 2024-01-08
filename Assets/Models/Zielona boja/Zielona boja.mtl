@@ -1,0 +1,22 @@
+# Blender 3.4.1 MTL File: 'Zielona Boja morska.blend'
+# www.blender.org
+
+newmtl Green_metal
+Ns 6.817611
+Ka 0.688073 0.688073 0.688073
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:/Users/Użytkownik/Desktop/Projekt VR/Textura/ciemno zielony metal.jpg
+
+newmtl light
+Ns 640.000000
+Ka 0.678899 0.678899 0.678899
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 10.213708 0.234127
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd C:/Users/Użytkownik/Downloads/światło.jpg
