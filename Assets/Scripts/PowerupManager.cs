@@ -44,6 +44,8 @@ public class PowerupManager : MonoBehaviour
                 case Powerup.Shockwave:
                     {
                         Debug.Log("shockwave");
+                        skillsController.Shockwave();
+                        Destroy(gameObject);
                         break;
                     }
                 case Powerup.Freeze:

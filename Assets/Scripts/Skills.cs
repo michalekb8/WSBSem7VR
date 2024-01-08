@@ -5,8 +5,11 @@ using UnityEngine;
 public class Skills : MonoBehaviour
 {
     public bool hasStrength = false;
-    float strengthPower = 15f;
+    float strengthPower = 6f;
     public GameObject strengthVFX;
+
+    public float detectionRadius = 5f;
+    public GameObject shockwaveVFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,12 @@ public class Skills : MonoBehaviour
     {
 
     }
+
+    //void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.yellow;
+    //    Gizmos.DrawWireSphere(transform.position, detectionRadius);
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -43,5 +52,19 @@ public class Skills : MonoBehaviour
         strengthVFX.SetActive(false);
         Debug.Log("koniec sily");
         hasStrength = false;
+    }
+
+    public void Shockwave()
+    {
+        shockwaveVFX.GetComponent<ParticleSystem>().Play();
+        Collider[] enemiesInRadius = Physics.OverlapSphere(transform.position, detectionRadius);
+        foreach (var enemy in enemiesInRadius)
+        {
+            if (enemy.CompareTag("Enemy"))
+            {
+                Vector3 awayFromPlayer = enemy.transform.position - transform.position;
+                enemy.attachedRigidbody.AddForce(awayFromPlayer * strengthPower, ForceMode.Impulse);
+            }
+        }
     }
 }
