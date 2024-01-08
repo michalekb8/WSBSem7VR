@@ -51,6 +51,8 @@ public class PowerupManager : MonoBehaviour
                 case Powerup.Freeze:
                     {
                         Debug.Log("freeze");
+                        skillsController.Freeze();
+                        Destroy(gameObject);
                         break;
                     }
                 case Powerup.Heal:

@@ -375,10 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1745721199049706482, guid: 1dedee2c8362e584f9dd8f1e0d46980f, type: 3}
   powerupPrefab:
-  - {fileID: 261903023317019380, guid: f6c20f37925be064cb0df57a0e0cdc71, type: 3}
-  - {fileID: 261903023317019380, guid: f6c20f37925be064cb0df57a0e0cdc71, type: 3}
-  - {fileID: 261903023317019380, guid: f6c20f37925be064cb0df57a0e0cdc71, type: 3}
-  - {fileID: 261903023317019380, guid: f6c20f37925be064cb0df57a0e0cdc71, type: 3}
+  - {fileID: 261903023317019380, guid: 3c96ea57faaf6164a9306401ef264f87, type: 3}
   waveNumber: 1
   enemyCount: 0
 --- !u!1 &652266701
@@ -5567,10 +5564,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447c9cb35774b5440900f4fe6dd343d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strengthPower: 6
   hasStrength: 0
   strengthVFX: {fileID: 652266701}
   detectionRadius: 5
   shockwaveVFX: {fileID: 1798336128}
+  freezeTime: 3
 --- !u!1 &1472613318
 GameObject:
   m_ObjectHideFlags: 0

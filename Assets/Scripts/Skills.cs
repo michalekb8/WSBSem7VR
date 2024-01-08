@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour
 {
-    public bool hasStrength = false;
-    float strengthPower = 6f;
+    //Strength variables
+    [Header("Strength")]
+    [SerializeField] float strengthPower = 6f;
+    [HideInInspector] public bool hasStrength = false;
     public GameObject strengthVFX;
 
+    //Shockwave variables
+    [Header("Shockwave")]
     public float detectionRadius = 5f;
     public GameObject shockwaveVFX;
+
+    //Freeze variables
+    [Header("Freeze")]
+    [SerializeField] float freezeTime = 3f;
+    Rigidbody[] enemiesRb;
+    GameObject[] enemiesGo;
     // Start is called before the first frame update
     void Start()
     {
@@ -65,6 +75,47 @@ public class Skills : MonoBehaviour
                 Vector3 awayFromPlayer = enemy.transform.position - transform.position;
                 enemy.attachedRigidbody.AddForce(awayFromPlayer * strengthPower, ForceMode.Impulse);
             }
+        }
+    }
+
+    public void Freeze()
+    {
+        enemiesGo = GameObject.FindGameObjectsWithTag("Enemy");
+        enemiesRb = new Rigidbody[enemiesGo.Length];
+        for (int i = 0; i < enemiesGo.Length; i++)
+        {
+            enemiesRb[i] = enemiesGo[i].GetComponent<Rigidbody>();
+        }
+        //Debug.Log("Ilosc: " + enemiesRb.Length);
+        StartCoroutine(FreezeForTime(freezeTime));
+    }
+
+    IEnumerator FreezeForTime(float operationTime)
+    {
+        float startTime = Time.time;
+
+        while (Time.time - startTime < operationTime)
+        {
+            StayStill();
+            yield return null;
+        }
+        foreach (GameObject enemy in enemiesGo)
+        {
+            EnemyController script = enemy.GetComponent<EnemyController>();
+            script.enabled = true;
+        }
+    }
+
+    void StayStill()
+    {
+        foreach (GameObject enemy in enemiesGo)
+        {
+            EnemyController script = enemy.GetComponent<EnemyController>();
+            script.enabled = false;
+        }
+        foreach (var enemy in enemiesRb)
+        {
+            enemy.velocity = new Vector3(0, 0, 0);
         }
     }
 }
