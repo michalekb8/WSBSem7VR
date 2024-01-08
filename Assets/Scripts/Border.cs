@@ -16,7 +16,6 @@ public class Border : MonoBehaviour
         {
             Destroy(other.gameObject);
             gm.IncreasePoints();
-            Debug.Log("+1");
         }
         else if (other.CompareTag("Player"))
         {

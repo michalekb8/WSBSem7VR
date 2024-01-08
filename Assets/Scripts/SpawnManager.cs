@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject[] powerupPrefab;
     public int waveNumber = 1;
 
     float minRadius = 0.1f;
@@ -16,6 +17,8 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         SpawnEnemyWave(waveNumber);
+        StartCoroutine(SpawnPowerupRoutine());
+        //SpawnPowerup(Random.Range(1, powerupPrefab.Length));
     }
 
     // Update is called once per frame
@@ -36,6 +39,22 @@ public class SpawnManager : MonoBehaviour
         {
             Instantiate(enemyPrefab, generateSpawnPoint(), Quaternion.identity);
         }
+    }
+
+    IEnumerator SpawnPowerupRoutine()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            SpawnPowerup(Random.Range(0, powerupPrefab.Length));
+            //SpawnPowerup(Random.Range(1, 1));
+        }
+    }
+
+    void SpawnPowerup(int powerupToSpawn)
+    {
+        Instantiate(powerupPrefab[powerupToSpawn], generateSpawnPoint() - new Vector3(0, 0.5f, 0), powerupPrefab[powerupToSpawn].transform.rotation);
+        Debug.Log("powerupp nr. :" + powerupToSpawn);
     }
 
     Vector3 generateSpawnPoint()
