@@ -7,14 +7,16 @@ public class GameManager : MonoBehaviour
 {
     CameraRotation cameraRotation;
     public TextMeshProUGUI scoreText;
-    public int score = 0;
+    public TextMeshProUGUI highScoreText;
+    public int score = 1;
 
     // Start is called before the first frame update
     void Start()
     {
         cameraRotation = GetComponent<CameraRotation>();
 
-        scoreText.text = "Punkty: " + score;
+        scoreText.text = "Runda: " + score;
+        highScoreText.text = "Highscore: " + PlayerPrefs.GetInt("Highscore");
     }
 
     // Update is called once per frame
@@ -33,6 +35,10 @@ public class GameManager : MonoBehaviour
     public void IncreasePoints()
     {
         score++;
+        if (PlayerPrefs.GetInt("Highscore") < score)
+        {
+            PlayerPrefs.SetInt("Highscore", score);
+        }
         scoreText.text = "Punkty: " + score;
     }
 }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+    GameManager gm;
+
     public GameObject enemyPrefab;
     public GameObject[] powerupPrefab;
-    public int waveNumber = 1;
+    public int waveNumber = 0;
 
     float minRadius = 0.1f;
     float maxradius = 8f;
@@ -16,6 +18,7 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gm = FindObjectOfType<GameManager>();
         SpawnEnemyWave(waveNumber);
         StartCoroutine(SpawnPowerupRoutine());
         //SpawnPowerup(Random.Range(1, powerupPrefab.Length));
@@ -28,7 +31,8 @@ public class SpawnManager : MonoBehaviour
         if (enemyCount == 0)
         {
             waveNumber++;
-            enemiesToSpawn = Random.Range(1, waveNumber);
+            gm.IncreasePoints();
+            enemiesToSpawn = Random.Range(waveNumber / 2, waveNumber);
             SpawnEnemyWave(enemiesToSpawn);
         }
     }
