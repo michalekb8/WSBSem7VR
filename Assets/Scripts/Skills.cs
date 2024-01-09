@@ -20,6 +20,7 @@ public class Skills : MonoBehaviour
     [SerializeField] float freezeTime = 3f;
     Rigidbody[] enemiesRb;
     GameObject[] enemiesGo;
+    [SerializeField] Animator freezeAnim;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +81,7 @@ public class Skills : MonoBehaviour
 
     public void Freeze()
     {
+        freezeAnim.SetTrigger("Freeze");
         enemiesGo = GameObject.FindGameObjectsWithTag("Enemy");
         enemiesRb = new Rigidbody[enemiesGo.Length];
         for (int i = 0; i < enemiesGo.Length; i++)
