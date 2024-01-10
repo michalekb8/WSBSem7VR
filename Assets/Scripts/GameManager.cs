@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public int score = 1;
 
+    [SerializeField] GameObject mainUI;
+    [SerializeField] GameObject pause;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,15 @@ public class GameManager : MonoBehaviour
         else
         {
             cameraRotation.rotationSpeed = 200f;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            Time.timeScale = 0;
+            mainUI.SetActive(false);
+            pause.SetActive(true);
+            Debug.Log("Pauza");
         }
     }
 
