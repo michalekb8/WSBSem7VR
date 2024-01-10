@@ -20,7 +20,7 @@ public class EnemyController : MonoBehaviour
         if (player != null)
         {
             Vector3 direction = (player.transform.position - transform.position).normalized;
-            rb.AddForce(direction * speed);
+            rb.AddForce(direction * speed * Time.deltaTime);
 
         }
     }
