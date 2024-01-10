@@ -49,7 +49,7 @@ public class SpawnManager : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(15f);
             SpawnPowerup(Random.Range(0, powerupPrefab.Length));
             //SpawnPowerup(Random.Range(1, 1));
         }
