@@ -616,9 +616,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1745721199049706482, guid: 1dedee2c8362e584f9dd8f1e0d46980f, type: 3}
   powerupPrefab:
-  - {fileID: 261903023317019380, guid: 19faf5f6b073cd143ba2a067a6843f2b, type: 3}
-  - {fileID: 261903023317019380, guid: f6c20f37925be064cb0df57a0e0cdc71, type: 3}
-  - {fileID: 261903023317019380, guid: 3c96ea57faaf6164a9306401ef264f87, type: 3}
+  - {fileID: 8813497349448308453, guid: 8abfbf353b0b8364e9e44fcfa730a741, type: 3}
+  - {fileID: 5323076665665386666, guid: f490fa026d99d2b498a875bebb46f81f, type: 3}
+  - {fileID: 5877570655239959839, guid: 2a4a3871860deb24baa1e89bbc3210fa, type: 3}
   waveNumber: 1
   enemyCount: 0
 --- !u!1 &591337176

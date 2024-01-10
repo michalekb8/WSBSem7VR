@@ -57,7 +57,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnPowerup(int powerupToSpawn)
     {
-        Instantiate(powerupPrefab[powerupToSpawn], generateSpawnPoint() - new Vector3(0, 0.5f, 0), powerupPrefab[powerupToSpawn].transform.rotation);
+        Instantiate(powerupPrefab[powerupToSpawn], generateSpawnPoint() - new Vector3(0, 1.6f, 0), powerupPrefab[powerupToSpawn].transform.rotation);
         //Debug.Log("powerupp nr. :" + powerupPrefab[powerupToSpawn].name);
     }
 
